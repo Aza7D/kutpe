@@ -1,0 +1,73 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+
+    <div class="main" id="Home">
+        <h1>KUTPE<br></h1>
+        <p class="mb-0">Не жди правильного момента, потому что правильный момент - это сейчас.</p>
+    </div>
+    <div class="main_content">
+
+        <h4 class="mb-4">
+            ТОП РЕПЕТИТОРЫ
+            <a href="{% url 'mentors_list' %}" class="link-primary text-end text-break fs-6 m-lg-5">Больше</a>
+        </h4>
+        <div class="row">
+            {% for mentor in mentors %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col-md-6 d-flex flex-column align-items-center">
+                                <div class="images-container">
+                                    {% if mentor.image %}
+                                        <img class="img-fluid mb-3" src="{{ mentor.image.url }}"
+                                             alt="Репетитор 1">
+                                    {% else %}
+                                        <img class="img-fluid mb-3"
+                                             src="https://www.vremyarozat.ru/static/images/no-photo.png"
+                                             alt="Репетитор 1">
+                                    {% endif %}
+                                </div>
+                                <h5 class="mt-4">{{ mentor.user.full_name }}</h5>
+                            </div>
+
+                            <div class="col-md-6 d-flex flex-column justify-content-center">
+                                <h5 class="card-title">{{ mentor.subjects }}</h5>
+                                <p class="card-text"> {{ mentor.user.email }}</p>
+                                <p class="card-text lh-1">
+                                    {{ mentor.description|truncatechars:60 }}</p>
+                                <a class="btn btn-primary check"
+                                   href="{% url 'mentor_detail' mentor.id %}">Посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    <div class="top-tutors">
+        <h4 class="mb-4">ТОП СТАЖИРОВКИ<a href="{% url 'internships_list' %}" style=""
+                                          class="link-primary text-end text-break fs-6 m-lg-5">Больше</a>
+        </h4>
+        <div class="row">
+            {% for internship in internships %}
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body row text-center">
+                            <h5 class="card-title">{{ internship.organization_name }}</h5>
+                            <p class="card-text"> {{ internship.position }}</p>
+                            <p class="card-text lh-1">
+                                {{ internship.description|truncatechars:20 }}</p>
+                            <a class="btn btn-primary check">Подать заявку</a>
+                            {#                                       href="{% url 'mentor_detail' mentor.id %}">Посмотреть</a>#}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+

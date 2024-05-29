@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+</style>
+
+<div class="main mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4 first_block">
+                <h1>ДОБРО ПОЖАЛОВАТЬ KUTPE!</h1>
+                <p>Нужные репетиторы, мероприятия и конференции - все в одной платформе</p>
+                <div>
+                    <a href="{% url 'login' %}" class="btn btn-primary login_button">ВОЙТИ</a>
+                    <a href="{% url 'registration' %}" class="btn btn-outline-primary register_button">СОЗДАТЬ АККАУНТ</a>
+                </div>
+            </div>
+            <div class="col-md-6 second_block">
+                <img width="300px" src="{% static "images/Rocket.png" %}" alt="Изображение">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

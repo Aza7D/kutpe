@@ -1,0 +1,145 @@
+h1, h2, h3, h4 {
+    font-family: 'Helvetica', Arial, sans-serif;
+    color: #2D323E;
+    font-weight: bold;
+}
+
+ul, ol {
+    list-style: none;
+}
+.main_content{
+    max-width: 100%;
+    width: 1100px;
+    height: 165px;
+    top: 100px;
+    left: 147px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px auto;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.images-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 40px;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.main {
+    max-width: 100%;
+    width: 1260px;
+    height: 165px;
+    top: 100px;
+    left: 147px;
+    background: linear-gradient(287.16deg, #8c7def 10%, rgba(243, 196, 124, 0) 120.15%);
+    padding: 30px;
+    border-radius: 860px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+
+
+.main p {
+    font-size: 20px;
+    font-family: 'Roboto-Italic', system-ui;
+    font-weight: 400;
+    font-style: italic;
+}
+
+@media (max-width: 950px) {
+    .main {
+        max-width: 100%;
+        width: 400px;
+        height: 118px;
+        background: linear-gradient(287.16deg, #7766e5 19.33%, rgba(249, 173, 43, 0) 188.15%);
+        padding: 10px 0 5px 0;
+        border-radius: 20px;
+        text-align: center;
+        margin: 20px auto;
+
+    }
+
+    .col-md-6 {
+        width: 100%;
+    }
+
+    .main h1 {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Roboto-Italic', system-ui;
+    }
+
+    .main p {
+        font-size: 15px;
+        font-family: 'Roboto-Italic', system-ui;
+    }
+
+}
+
+
+.top-tutors {
+    text-align: center;
+    margin: 65px auto;
+}
+
+.other-tutors {
+    text-align: center;
+    margin: 80px auto;
+}
+
+.third-tutors {
+    text-align: center;
+    margin: 80px auto;
+}
+
+.collapse-button {
+    margin-left: 10px;
+}
+
+.btn {
+    background-color: #9d90f5;
+}
+
+.btn:hover {
+    background-color: #9d90f5;
+    color: #ffffff;
+    border: 2px solid;
+}
+
+.check {
+    max-width: 100%;
+    width: 55%;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.card{
+    background-color: #f8f8f8;
+    border: none;
+    max-width: 100%;
+}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .centered-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin-left: 150px;
+    }
+
+    .registration-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Выравнивание содержимого по левому краю */
+    }
+
+    .btn {
+        color: #8E7CFF;
+        border: 2px solid #8E7CFF;
+        padding: 17px 13px;
+        font-size: 20px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        width: 50%;
+        margin-top: 20px;
+    }
+
+    .btn:hover {
+        background-color: #e0d9f1;
+        color: #9774ea;
+        border: 2px solid #8E7CFF;
+    }
+
+    .account-image {
+        max-width: 50%; /* Максимальная ширина изображения */
+        margin-left: 20px; /* Отступ слева для разделения блока и изображения */
+    }
+</style>
+
+<div class="container centered-content">
+    <div class="registration-container">
+    <h1 style="margin-bottom: 50px;">Регистрация <img src="{% static 'images/Frame 2.png' %}" alt="Изображение" style="width: 35%; height: 50%;"> </h1>
+        <div>
+            <h3>Какой тип аккаунта вы желаете создать?</h3>
+            <a href="{% url 'registration' %}" class="btn">Персональный</a>
+            <a href="{% url 'registration' %}" class="btn">Репетитор</a>
+            <a href="{% url 'registration' %}" class="btn">Организация</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="{% static 'images/image 2.png' %}" alt="Изображение аккаунта" class="account-image" style="margin-top: 70px">
+    </div>
+</div>
+
+{% endblock %}
+

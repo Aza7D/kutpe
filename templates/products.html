@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <title>{% block title %}Kutpe App{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base_styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .card-subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .card-text {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            {% for i in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        {% if i.image %}
+                            <img src="{{ i.image.url }}" class="card-img-top" alt="Product photo">
+                        {% else %}
+                            <img src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-avatar-vector-isolated-on-white-background-png-image_4979074.jpg" class="card-img-top" alt="Product photo">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.name }}</h5>
+                            <h6 class="card-subtitle mb-2">Цена: {{ i.price }}</h6>
+                            <p class="card-text">Качество: {{ i.quality }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

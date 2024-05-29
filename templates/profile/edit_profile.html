@@ -1,0 +1,68 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+
+<div class="container centered-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Изменения профиля</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.full_name.label_tag }}
+                            {{ form.full_name }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.country.label_tag }}
+                            {{ form.country }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.gender.label_tag }}
+                            {{ form.gender }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.password.label_tag }}
+                            {{ form.password }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.confirm_password.label_tag }}
+                            {{ form.confirm_password }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.date_of_birth.label_tag }}
+                            <input type="date" name="date_of_birth" id="id_date_of_birth">
+                        </div>
+                        <div class="form-group">
+                            {{ form.description.label_tag }}
+                            {{ form.description }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.education.label_tag }}
+                            {{ form.education }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.image.label_tag }}
+                            {{ form.image }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

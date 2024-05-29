@@ -1,0 +1,11 @@
+<!-- ticket.html -->
+{% extends 'base2.html' %}
+
+{% block content %}
+  <h2>Ваш билет:</h2>
+  <p>ФИО: {{ student.full_name }}</p>
+  <p>Университет: {{ student.university }}</p>
+  <p>Курс: {{ student.course }}</p>
+  <p>Специальность: {{ student.specialty }}</p>
+  <p>Цель визита: {{ student.purpose }}</p>
+{% endblock %}

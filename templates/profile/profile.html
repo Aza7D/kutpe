@@ -1,0 +1,106 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <div class="profile-wrapper">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-photo">
+                    {% if user.image %}
+                        <img src="{{ user.image.url }}" alt="User Photo">
+                    {% else %}
+                        <img src="https://png.pngtree.com/png-clipart/20190925/original/pngtree-no-avatar-vector-isolated-on-white-background-png-image_4979074.jpg"
+                             alt="User Photo">
+                    {% endif %}
+                </div>
+                <div class="profile-info">
+                    <h1>{{ user.full_name }}</h1>
+                    <p class="location">{{ user.country }}</p>
+                </div>
+            </div>
+            <div class="profile-actions row">
+                <div class="col-md-4">
+                    <a class="btn btn-primary" href="{% url 'edit_profile' %}">Редактировать</a>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-primary" href="{% url 'create_internship' %}">Добавить стажировку</a>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-primary" href="{% url 'become_mentor' %}">
+                        {% if is_mentor %}
+                            Изменить карту наставника
+                        {% else %}
+                            Добавить карту наставником
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+            <div class="profile-details">
+                <h2>Мои карточки</h2>
+                <ul>
+                    {% if is_mentor %}
+                        <li>
+                            <a href="#">{{ mentor_profile.subjects }}</a>
+                            <ul>
+                                <li>{{ mentor_profile.description }}</li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <p class="text-muted">
+                                Добавьте карточку репетитора
+                            </p>
+                        </li>
+                    {% endif %}
+                </ul>
+                <ul>
+                    {% if is_internship %}
+                        <li>
+                            <a href="#">Наименоваие организации: {{ internship.organization_name }}</a>
+                            <ul>
+                                <li>Позиция: {{ internship.position }}</li>
+                                <li>Описание: {{ internship.description }}</li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <p class="text-muted">
+                                Добавьте карточку стажировки
+                            </p></li>
+                    {% endif %}
+                </ul>
+                <h2>О себе</h2>
+                {% if user.email %}
+                    <p>Email: {{ user.email }}</p>
+                {% else %}
+                    <p class="text-muted">
+                        Пусто
+                    </p>
+                {% endif %}
+                {% if user.gender %}
+                    <p>Пол: {{ user.gender }}</p>
+                {% else %}
+                    <p class="text-muted">
+                        Пусто
+                    </p>
+                {% endif %}
+                {% if user.description %}
+                    <p>О себе: {{ user.description }}</p>
+                {% else %}
+                    <p class="text-muted">
+                        Пусто
+                    </p>
+                {% endif %}
+                <h2>Образование</h2>
+                {% if user.education %}
+                    <p>{{ user.education }}</p>
+                {% else %}
+                    <p class="text-muted">
+                        Пусто
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,70 @@
+/* Внешний файл CSS (registration.css) или внутренний стиль внутри блока <style> */
+/* Стили для центрирования страницы */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Высота вьюпорта */
+    margin-left: 150px;
+}
+
+.registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание содержимого по левому краю */
+}
+
+.btn {
+    color: #8E7CFF;
+    border: 2px solid #8E7CFF;
+    padding: 17px 13px;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
+    margin-top: 20px;
+}
+
+    .btn:hover {
+        background-color: #e0d9f1;
+        color: #9774ea;
+        border: 2px solid #8E7CFF;
+    }
+
+.account-image {
+    max-width: 300%; /* Максимальная ширина изображения */
+    margin-left: 40px; /* Отступ слева для разделения блока и изображения */
+}
+
+/* Дополнительные стили, если необходимо */
+h1 {
+    margin-bottom: 100px;
+}
+
+h3 {
+    /* Стили для заголовка h3, если необходимо */
+}
+
+/* Стили для изображений, если необходимо */
+img {
+    /* Стили для изображений */
+}
+
+.next-button {
+    display: inline-block;
+    padding: 10px 100px;
+    background-color: #8E7CFF;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 40px; /* Увеличьте или уменьшите значение, чтобы настроить отступ от предыдущего блока */
+}
+
+    .next-button:hover {
+        background-color: #9774ea;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+

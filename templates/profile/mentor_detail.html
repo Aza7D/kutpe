@@ -1,0 +1,32 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
+<div class="mentor-details-container d-flex justify-content-center align-items-center">
+<div class="card mentor-card col-12 col-md-4" >
+        <img class="card-img-top img-fluid rounded" src="{% if mentor.image %}{{ mentor.image.url }}{% else %}https://www.vremyarozat.ru/static/images/no-photo.png{% endif %}" alt="{{ mentor.user.full_name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ mentor.user.full_name }}</h5>
+            <p class="card-title">{{ mentor.city }}</p>
+            <p class="card-title">{{ mentor.user.email }}</p>
+            <p class="card-text">{{ mentor.subjects }}</p>
+            <p class="card-text">{{ mentor.description }}</p>
+            <p class="card-text">{{ mentor.phone_number }}</p>
+            <p class="card-text">{{ mentor.format }}</p>
+            <p class="card-text">{{ mentor.education }}</p>
+            {% if mentor.instagram %}
+                <p class="card-text">{{ mentor.instagram }}</p>
+            {% else %}
+            {% endif %}
+            {% if mentor.telegram %}
+                <p class="card-text">{{ mentor.telegram }}</p>
+            {% else %}
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" href="{% url 'leave_contact' mentor_id=mentor.id %}">Оставить контакты</a>
+            <a class="btn btn-secondary close-button" href="{% url 'home'%}">Закрыть</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

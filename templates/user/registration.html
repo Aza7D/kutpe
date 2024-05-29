@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* На весь видимый экран */
+    }
+    .logo{
+        width: 25%;
+    }
+    @media (max-width: 767px) {
+        .container {
+            flex-direction: column; /* Поменять направление flexbox на колонку */
+        }
+
+        .col-md-6 {
+            display: none; /* Скрыть на мобильных устройствах */
+        }
+        .logo{
+
+        }
+
+    }
+</style>
+
+
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    <div class="main">
+
+    <div class="container">
+        <div class="registration-container">
+            <h1 style="margin-bottom: 20px;">Регистрация <img class="logo" src="{% static 'images/Frame 2.png' %}" alt="Изображение"></h1>
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.full_name.id_for_label }}" style="color: #8875FF;">ФИО (полное):</label>
+                    {{ form.full_name }}
+                    <div class="error-message">{{ form.full_name.errors }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}" style="color: #8875FF;">Email:</label>
+                    {{ form.email }}
+                    <div class="error-message">{{ form.email.errors }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}" style="color: #8875FF;">Пароль:</label>
+                    <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}">
+                    <div class="error-message">{{ form.password.errors }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.confirm_password.id_for_label }}" style="color: #8875FF;">Подтвердите пароль:</label>
+                    <input type="password" id="{{ form.confirm_password.id_for_label }}" name="{{ form.confirm_password.name }}">
+                    <div class="error-message">{{ form.confirm_password.errors }}</div>
+                </div>
+                <button class="btn btn-primary" type="submit">Продолжить</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/image 2.png' %}" alt="Изображение аккаунта" class="account-image" style="margin-top: 70px;">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
