@@ -1,4 +1,4 @@
--- git clone https://github.com/koppper/kutpe.git
+-- git clone https://github.com/Aza7D/kutpe.git
 
 -- git checkout -b "name_your_branch"
 
